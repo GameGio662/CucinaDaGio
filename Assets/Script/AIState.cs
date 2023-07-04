@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
 public enum State
 {
     Idle,
-    Ordinare,
-
+    Ordinazione,
+    Preparazione,
 }
 
 public enum Event
@@ -23,21 +24,28 @@ public class AIState
     protected AIState nextState;
     protected NavMeshAgent agent;
     protected GameObject Player;
-    protected Transform Cliente, Frigorifero, Dispensa, PianoCottura;
+    protected GameObject Ordine;
+    protected Transform Cliente, Frigorifero, Dispensa, PianoCottura, Forno;
+    protected TextMeshProUGUI OrdinazioneCliente;
 
     float secondi;
     float minuti;
 
-    public AIState(NavMeshAgent _agent, GameObject _player, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura)
+    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, TextMeshProUGUI _ordinazioneCliente)
     {
         Stage = Event.Enter;
         agent = _agent;
         Player = _player;
+        Ordine = _ordine;
         Cliente = _cliente;
         Frigorifero = _frigorifero;
         Dispensa = _dispensa;
         PianoCottura = _pianoCottura;
+        Forno = _forno;
+        OrdinazioneCliente = _ordinazioneCliente;
     }
+
+
 
     public virtual void Enter() { Stage = Event.Update; }
     public virtual void Updata() { }
@@ -81,7 +89,19 @@ public class AIState
         return true;
     }
 
+    public bool Pronto()
+    {
+        if (Ordine.name == "Pronto")
+        {
+            return true;
+        }
+        else if (Ordine.name == "Ordine")
+        {
+            return false;
+        }
 
+        return false;
+    }
 
     #endregion
 
