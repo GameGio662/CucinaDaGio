@@ -19,7 +19,7 @@ public class Idle : AIState
 
     public override void Updata()
     {
-        if (Vector3.Distance(new Vector3(0, 3, 2), Player.transform.position) <= 1.5)
+        if (Vector3.Distance(new Vector3(0, 3, 2), Player.transform.position) <= 1.2f)
             if (Apertura())
             {
                 nextState = new Ordinazione(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);

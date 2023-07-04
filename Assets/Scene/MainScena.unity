@@ -2186,12 +2186,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8df872c8573ec148ba25bf6d70a4759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  salsaPesce: 0
+  salsaPesce: 5
   peperoncino: 5
   sale: 5
   nduja: 5
   vitello: 5
   pitta: 5
+  fruttaSecca: 5
+  miele: 5
+  cannella: 5
 --- !u!1 &886131663
 GameObject:
   m_ObjectHideFlags: 0

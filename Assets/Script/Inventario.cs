@@ -20,10 +20,13 @@ public class Inventario : MonoBehaviour
     }
     #endregion
 
-    public int salsaPesce = 0;
-    public int peperoncino = 5;
-    public int sale = 5;
-    public int nduja = 5;
-    public int vitello = 5;
-    public int pitta = 5;
+    public int salsaPesce;
+    public int peperoncino;
+    public int sale;
+    public int nduja;
+    public int vitello;
+    public int pitta;
+    public int fruttaSecca;
+    public int miele;
+    public int cannella;
 }

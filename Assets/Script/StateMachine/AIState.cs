@@ -114,6 +114,24 @@ public class AIState
         return true;
     }
 
+    public bool IngrMors()
+    {
+        if(Inventario.current.nduja == 0 || Inventario.current.vitello == 0 || Inventario.current.pitta == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public bool IngrPitNchiusa()
+    {
+        if (Inventario.current.fruttaSecca == 0 || Inventario.current.miele == 0 || Inventario.current.cannella == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
 
     #endregion
 

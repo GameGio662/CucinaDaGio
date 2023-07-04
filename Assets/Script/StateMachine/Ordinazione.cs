@@ -21,9 +21,9 @@ public class Ordinazione : AIState
         conferma = false;
         next = false;
         timer = 0;
-
+        scelta = Random.Range(0, 3);
         agent.SetDestination(Cliente.position);
-        if (Vector3.Distance(Cliente.position, Player.transform.position) < 3)
+        if (Vector3.Distance(Cliente.position, Player.transform.position) <= 3f)
             ordinare = true;
 
         base.Enter();
@@ -35,12 +35,12 @@ public class Ordinazione : AIState
         {
             if (ordinare)
             {
-                scelta = 0; //Random.Range(0, 3);
+                timer += Time.deltaTime;
                 SceltaOrdine(scelta);
-                OrdinazioneCliente.text = "Vorei " + Ordine.name + "           Premi Space Per Continuare";
+                OrdinazioneCliente.text = "Vorei " + Ordine.name;
                 conferma = true;
             }
-            if (Input.GetKeyDown(KeyCode.Space) && conferma)
+            if (timer >= 2f && conferma)
             {
                 OrdinazioneCliente.text = " ";
                 ordinare = false;

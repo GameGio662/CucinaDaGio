@@ -31,7 +31,22 @@ public class Rifornimento : AIState
                 Inventario.current.peperoncino = 5;
                 Inventario.current.sale = 5;
                 RitornaAPreparare();
+            }
 
+            if (!IngrMors())
+            {
+                Inventario.current.nduja = 5;
+                Inventario.current.vitello= 5;
+                Inventario.current.pitta = 5;
+                RitornaAPreparare();
+            }
+
+            if(!IngrPitNchiusa())
+            {
+                Inventario.current.fruttaSecca = 5;
+                Inventario.current.miele = 5;
+                Inventario.current.cannella = 5;
+                RitornaAPreparare();
             }
         }
         base.Updata();
