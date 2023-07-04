@@ -9,6 +9,7 @@ public enum State
     Idle,
     Ordinazione,
     Preparazione,
+    Rifornimento,
 }
 
 public enum Event
@@ -25,13 +26,13 @@ public class AIState
     protected NavMeshAgent agent;
     protected GameObject Player;
     protected GameObject Ordine;
-    protected Transform Cliente, Frigorifero, Dispensa, PianoCottura, Forno;
+    protected Transform Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento;
     protected TextMeshProUGUI OrdinazioneCliente;
 
     float secondi;
     float minuti;
 
-    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, TextMeshProUGUI _ordinazioneCliente)
+    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente)
     {
         Stage = Event.Enter;
         agent = _agent;
@@ -42,6 +43,7 @@ public class AIState
         Dispensa = _dispensa;
         PianoCottura = _pianoCottura;
         Forno = _forno;
+        rifornimento = _rifornimento;
         OrdinazioneCliente = _ordinazioneCliente;
     }
 
@@ -102,6 +104,16 @@ public class AIState
 
         return false;
     }
+
+    public bool IngrCavPov()
+    {
+        if (Inventario.current.salsaPesce == 0 || Inventario.current.peperoncino == 0 || Inventario.current.sale == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
 
     #endregion
 

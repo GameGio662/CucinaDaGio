@@ -1686,7 +1686,7 @@ GameObject:
   - component: {fileID: 586221325}
   - component: {fileID: 586221324}
   m_Layer: 0
-  m_Name: Frigorifero (1)
+  m_Name: Rifornimenti
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
@@ -2035,6 +2035,7 @@ GameObject:
   - component: {fileID: 848341934}
   - component: {fileID: 848341937}
   - component: {fileID: 848341938}
+  - component: {fileID: 848341939}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2170,8 +2171,27 @@ MonoBehaviour:
   Dispensa: {fileID: 107085309}
   PianoCottura: {fileID: 2120846437}
   Forno: {fileID: 1721369106}
+  Rifornimento: {fileID: 586221323}
   Ordine: {fileID: 755771077}
   OrdinazioneCliente: {fileID: 1658170950}
+--- !u!114 &848341939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848341932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8df872c8573ec148ba25bf6d70a4759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  salsaPesce: 0
+  peperoncino: 5
+  sale: 5
+  nduja: 5
+  vitello: 5
+  pitta: 5
 --- !u!1 &886131663
 GameObject:
   m_ObjectHideFlags: 0

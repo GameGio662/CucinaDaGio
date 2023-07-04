@@ -7,11 +7,12 @@ using UnityEngine.AI;
 
 public class Ordinazione : AIState
 {
-    public Ordinazione(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, TextMeshProUGUI _ordinazioneCliente)
-         : base(_agent, _player, _ordine, _cliente, _frigorifero, _dispensa, _pianoCottura, _forno, _ordinazioneCliente)
+    public Ordinazione(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente)
+         : base(_agent, _player, _ordine, _cliente, _frigorifero, _dispensa, _pianoCottura, _forno, _rifornimento, _ordinazioneCliente)
     {
         Name = State.Ordinazione;
     }
+
     bool ordinare, conferma, next;
     int scelta;
     float timer;
@@ -30,7 +31,6 @@ public class Ordinazione : AIState
 
     public override void Updata()
     {
-        Debug.Log(ordinare);
         if (!Pronto())
         {
             if (ordinare)
@@ -44,7 +44,7 @@ public class Ordinazione : AIState
             {
                 OrdinazioneCliente.text = " ";
                 ordinare = false;
-                nextState = new Preparazione(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, OrdinazioneCliente);
+                nextState = new Preparazione(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
                 Stage = Event.Exit;
             }
         }
@@ -67,7 +67,7 @@ public class Ordinazione : AIState
             Ordine.name = "Ordine";
             OrdinazioneCliente.text = " ";
             agent.SetDestination(new Vector3(0, 3f, 2f));
-            nextState = new Idle(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, OrdinazioneCliente);
+            nextState = new Idle(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
             Stage = Event.Exit;
             return;
         }
