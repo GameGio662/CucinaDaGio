@@ -56,7 +56,7 @@ public class Rifornimento : AIState
 
     void RitornaAPreparare()
     {
-        nextState = new Preparazione(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
+        nextState = new Preparazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
         Stage = Event.Exit;
         return;
     }

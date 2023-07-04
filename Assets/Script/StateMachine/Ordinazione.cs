@@ -22,8 +22,8 @@ public class Ordinazione : AIState
         next = false;
         timer = 0;
         scelta = Random.Range(0, 3);
-        agent.SetDestination(Cliente.position);
-        if (Vector3.Distance(Cliente.position, Player.transform.position) <= 3f)
+        agent.SetDestination(Sportello.position);
+        if (Vector3.Distance(Sportello.position, Player.transform.position) < 4f)
             ordinare = true;
 
         base.Enter();
@@ -44,14 +44,14 @@ public class Ordinazione : AIState
             {
                 OrdinazioneCliente.text = " ";
                 ordinare = false;
-                nextState = new Preparazione(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
+                nextState = new Preparazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
                 Stage = Event.Exit;
             }
         }
 
         if (Pronto())
         {
-            if (Vector3.Distance(Cliente.position, Player.transform.position) < 2)
+            if (Vector3.Distance(Sportello.position, Player.transform.position) < 2)
             {
                 timer += Time.deltaTime;
                 OrdinazioneCliente.text = "Grazie, Arrivederci.";
@@ -67,7 +67,7 @@ public class Ordinazione : AIState
             Ordine.name = "Ordine";
             OrdinazioneCliente.text = " ";
             agent.SetDestination(new Vector3(0, 3f, 2f));
-            nextState = new Idle(agent, Player, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
+            nextState = new Idle(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente);
             Stage = Event.Exit;
             return;
         }

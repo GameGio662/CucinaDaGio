@@ -26,19 +26,19 @@ public class AIState
     protected NavMeshAgent agent;
     protected GameObject Player;
     protected GameObject Ordine;
-    protected Transform Cliente, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento;
+    protected Transform Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento;
     protected TextMeshProUGUI OrdinazioneCliente;
 
     float secondi;
     float minuti;
 
-    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _cliente, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente)
+    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente)
     {
         Stage = Event.Enter;
         agent = _agent;
         Player = _player;
         Ordine = _ordine;
-        Cliente = _cliente;
+        Sportello = _sportello;
         Frigorifero = _frigorifero;
         Dispensa = _dispensa;
         PianoCottura = _pianoCottura;
@@ -68,25 +68,15 @@ public class AIState
 
     public bool Apertura()
     {
-        if (minuti < 20)
-            secondi += Time.deltaTime;
-
-        if (secondi >= 60)
+        if (Giorno.current.minuti >= 10 && Giorno.current.minuti < 24)
         {
-            secondi = 0;
-            minuti = 1;
-            if (minuti >= 20)
-            {
-                secondi = 0;
-                minuti += Time.deltaTime;
-                if (minuti == 24)
-                {
-                    minuti = 0;
-                    return true;
-                }
-                return false;
-            }
+            return false;
         }
+        else if (Giorno.current.minuti >= 24)
+        {
+            return true;
+        }
+
 
         return true;
     }
@@ -116,7 +106,7 @@ public class AIState
 
     public bool IngrMors()
     {
-        if(Inventario.current.nduja == 0 || Inventario.current.vitello == 0 || Inventario.current.pitta == 0)
+        if (Inventario.current.nduja == 0 || Inventario.current.vitello == 0 || Inventario.current.pitta == 0)
         {
             return false;
         }

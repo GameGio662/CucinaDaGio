@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class AIController : MonoBehaviour
 {
-    [SerializeField] Transform Cliente;
+    [SerializeField] Transform Sportello;
     [SerializeField] Transform Frigorifero;
     [SerializeField] Transform Dispensa;
     [SerializeField] Transform PianoCottura;
@@ -23,13 +23,13 @@ public class AIController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        currentState = new Idle(agent, this.gameObject, Ordine, Cliente, Frigorifero, Dispensa, PianoCottura, Forno, Rifornimento, OrdinazioneCliente);
+        currentState = new Idle(agent, this.gameObject, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, Rifornimento, OrdinazioneCliente);
     }
 
 
     void Update()
     {
         currentState = currentState.Process();
-        Debug.Log(currentState.Name);
+        //Debug.Log(currentState.Name);
     }
 }
