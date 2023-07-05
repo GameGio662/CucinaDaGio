@@ -24,28 +24,35 @@ public class Giorno : MonoBehaviour
     public float secondi;
     public float minuti;
 
+    private void Start()
+    {
+        minuti = 7;
+    }
+
     private void Update()
     {
         SecText.text = Mathf.RoundToInt(secondi).ToString("00");
         MinutiText.text = Mathf.RoundToInt(minuti).ToString("00");
 
+        secondi += Time.deltaTime;
 
-        if (minuti < 20)
-        {
-            secondi += Time.deltaTime;
-        }
+        
+
         if (secondi >= 60)
         {
             secondi = 0;
             minuti++;
         }
-        if (minuti >= 10 && minuti < 24)
+        if (minuti >= 20 && minuti < 24)
         {
             Sun.SetActive(false);
         }
-        else if (minuti >= 24)
+        if (minuti >= 24)
         {
             minuti = 0;
+        }
+        if(minuti >= 8 && minuti < 20)
+        {
             Sun.SetActive(true);
         }
     }

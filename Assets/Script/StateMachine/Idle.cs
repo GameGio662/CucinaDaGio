@@ -22,6 +22,7 @@ public class Idle : AIState
         if (Vector3.Distance(new Vector3(0, 3, 2), Player.transform.position) <= 2f)
             if (Apertura())
             {
+                OrdinazioneCliente.text = " ";
                 nextState = new Ordinazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente, Cliente);
                 Stage = Event.Exit;
                 Cliente.SetActive(true);
@@ -29,6 +30,7 @@ public class Idle : AIState
             }
             else if (!Apertura())
             {
+                OrdinazioneCliente.text = "ZzZzZzZz";
                 agent.SetDestination(new Vector3(0, 3f, 2));
                 Cliente.SetActive(false);
             }

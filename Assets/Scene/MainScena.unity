@@ -3922,8 +3922,8 @@ MonoBehaviour:
   Sun: {fileID: 1130645467}
   MinutiText: {fileID: 1406238869}
   SecText: {fileID: 139603667}
-  secondi: 0
-  minuti: 0
+  secondi: 50
+  minuti: 7
 --- !u!1 &1374276425
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,7 +33,7 @@ public class AIState
     float secondi;
     float minuti;
 
-    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, 
+    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello,
         Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno,
         Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente)
     {
@@ -72,12 +72,12 @@ public class AIState
 
     public bool Apertura()
     {
-        if (Giorno.current.minuti > 10 && Giorno.current.minuti < 24)
+        if (Giorno.current.minuti >= 20 && Giorno.current.minuti <= 24 || Giorno.current.minuti >= 0 && Giorno.current.minuti < 8)
         {
             return false;
         }
-
-        return true;
+        else
+            return true;
     }
 
     public bool Pronto()
