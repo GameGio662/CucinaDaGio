@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.PackageManager;
 using UnityEngine;
 
@@ -17,11 +18,18 @@ public class Giorno : MonoBehaviour
     #endregion
 
     [SerializeField] GameObject Sun;
+    [SerializeField] TextMeshProUGUI MinutiText;
+    [SerializeField] TextMeshProUGUI SecText;
+
     public float secondi;
     public float minuti;
 
     private void Update()
     {
+        SecText.text = Mathf.RoundToInt(secondi).ToString("00");
+        MinutiText.text = Mathf.RoundToInt(minuti).ToString("00");
+
+
         if (minuti < 20)
         {
             secondi += Time.deltaTime;
@@ -33,8 +41,6 @@ public class Giorno : MonoBehaviour
         }
         if (minuti >= 10 && minuti < 24)
         {
-            secondi = 0;
-            minuti += Time.deltaTime;
             Sun.SetActive(false);
         }
         else if (minuti >= 24)
