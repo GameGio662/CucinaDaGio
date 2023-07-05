@@ -13,6 +13,7 @@ public class AIController : MonoBehaviour
     [SerializeField] Transform Forno;
     [SerializeField] Transform Rifornimento;
     [SerializeField] GameObject Ordine;
+    [SerializeField] GameObject Cliente;
     [SerializeField] TextMeshProUGUI OrdinazioneCliente;
 
     NavMeshAgent agent;
@@ -23,7 +24,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        currentState = new Idle(agent, this.gameObject, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, Rifornimento, OrdinazioneCliente);
+        currentState = new Idle(agent, this.gameObject, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, Rifornimento, OrdinazioneCliente, Cliente);
     }
 
 

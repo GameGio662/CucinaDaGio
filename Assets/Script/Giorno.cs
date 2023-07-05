@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class Giorno : MonoBehaviour
@@ -15,6 +16,7 @@ public class Giorno : MonoBehaviour
     }
     #endregion
 
+    [SerializeField] GameObject Sun;
     public float secondi;
     public float minuti;
 
@@ -33,8 +35,12 @@ public class Giorno : MonoBehaviour
         {
             secondi = 0;
             minuti += Time.deltaTime;
+            Sun.SetActive(false);
         }
-        if (minuti >= 24)
+        else if (minuti >= 24)
+        {
             minuti = 0;
+            Sun.SetActive(true);
+        }
     }
 }

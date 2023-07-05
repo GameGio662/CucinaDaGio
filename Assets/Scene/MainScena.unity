@@ -2038,13 +2038,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765e4d1636675ea4b805fb133f3e217d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sportello: {fileID: 0}
+  Sportello: {fileID: 1379615556}
   Frigorifero: {fileID: 160583602}
   Dispensa: {fileID: 107085309}
   PianoCottura: {fileID: 2120846437}
   Forno: {fileID: 1721369106}
   Rifornimento: {fileID: 586221323}
   Ordine: {fileID: 755771077}
+  Cliente: {fileID: 1697908998}
   OrdinazioneCliente: {fileID: 1658170950}
 --- !u!114 &848341939
 MonoBehaviour:
@@ -2058,13 +2059,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8df872c8573ec148ba25bf6d70a4759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  salsaPesce: 5
+  salsaPesce: 0
   peperoncino: 5
   sale: 5
-  nduja: 5
+  nduja: 0
   vitello: 5
   pitta: 5
-  fruttaSecca: 5
+  fruttaSecca: 0
   miele: 5
   cannella: 5
 --- !u!195 &848341940
@@ -3080,7 +3081,7 @@ GameObject:
   - component: {fileID: 1130645469}
   - component: {fileID: 1130645468}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Sun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3505,8 +3506,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efa86abe2b09b3e4e8a16fc9d89cd194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sun: {fileID: 1130645467}
   secondi: 0
-  minuti: 9
+  minuti: 0
 --- !u!1 &1374276425
 GameObject:
   m_ObjectHideFlags: 0

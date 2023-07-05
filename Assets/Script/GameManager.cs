@@ -7,15 +7,15 @@ public class GameManager : MonoBehaviour
    
     void Start()
     {
-        Time.timeScale = 2;
+        Time.timeScale = 1;
     }
 
    
     void Update()
     {
         if (Input.GetKey(KeyCode.T))
-            Time.timeScale = 7;
+            Time.timeScale = 3;
         else
-            Time.timeScale = 2;
+            Time.timeScale = 1;
     }
 }

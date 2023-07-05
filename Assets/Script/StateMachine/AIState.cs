@@ -26,13 +26,16 @@ public class AIState
     protected NavMeshAgent agent;
     protected GameObject Player;
     protected GameObject Ordine;
+    protected GameObject Cliente;
     protected Transform Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento;
     protected TextMeshProUGUI OrdinazioneCliente;
 
     float secondi;
     float minuti;
 
-    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente)
+    public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, 
+        Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno,
+        Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente)
     {
         Stage = Event.Enter;
         agent = _agent;
@@ -45,6 +48,7 @@ public class AIState
         Forno = _forno;
         rifornimento = _rifornimento;
         OrdinazioneCliente = _ordinazioneCliente;
+        Cliente = _cliente;
     }
 
 
@@ -68,15 +72,10 @@ public class AIState
 
     public bool Apertura()
     {
-        if (Giorno.current.minuti >= 10 && Giorno.current.minuti < 24)
+        if (Giorno.current.minuti > 10 && Giorno.current.minuti < 24)
         {
             return false;
         }
-        else if (Giorno.current.minuti >= 24)
-        {
-            return true;
-        }
-
 
         return true;
     }
