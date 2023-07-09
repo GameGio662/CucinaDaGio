@@ -6000,18 +6000,6 @@ PrefabInstance:
       propertyPath: RifornimentoMorzeddhu
       value: 
       objectReference: {fileID: 1242343674}
-    - target: {fileID: 4468502791162512563, guid: 6ad6046cd51642b40b97cd1100283c5b, type: 3}
-      propertyPath: nduja
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468502791162512563, guid: 6ad6046cd51642b40b97cd1100283c5b, type: 3}
-      propertyPath: salsaPesce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4468502791162512563, guid: 6ad6046cd51642b40b97cd1100283c5b, type: 3}
-      propertyPath: fruttaSecca
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5528403916397153475, guid: 6ad6046cd51642b40b97cd1100283c5b, type: 3}
       propertyPath: m_RootOrder
       value: -1
