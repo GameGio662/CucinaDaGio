@@ -27,7 +27,7 @@ public class AIState
     protected GameObject Player;
     protected GameObject Ordine;
     protected GameObject Cliente;
-    protected Transform Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento;
+    protected Transform Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimentoCav, rifornimentoMorzeddhu, rifornimentoPitta;
     protected TextMeshProUGUI OrdinazioneCliente;
 
     float secondi;
@@ -35,7 +35,8 @@ public class AIState
 
     public AIState(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello,
         Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno,
-        Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente)
+        Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente,
+        GameObject _cliente, Transform _rifornimentoMorzeddhu, Transform _rifornimentoPitta)
     {
         Stage = Event.Enter;
         agent = _agent;
@@ -46,7 +47,9 @@ public class AIState
         Dispensa = _dispensa;
         PianoCottura = _pianoCottura;
         Forno = _forno;
-        rifornimento = _rifornimento;
+        rifornimentoCav = _rifornimento;
+        rifornimentoMorzeddhu = _rifornimentoMorzeddhu;
+        rifornimentoPitta = _rifornimentoPitta;
         OrdinazioneCliente = _ordinazioneCliente;
         Cliente = _cliente;
     }

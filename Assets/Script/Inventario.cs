@@ -20,12 +20,15 @@ public class Inventario : MonoBehaviour
     }
     #endregion
 
+    [Header("Caviale Dei Poveri")]
     public int salsaPesce;
     public int peperoncino;
     public int sale;
+    [Header("Morzeddhu")]
     public int nduja;
     public int vitello;
     public int pitta;
+    [Header("Pitta 'nchiusa")]
     public int fruttaSecca;
     public int miele;
     public int cannella;

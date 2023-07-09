@@ -35,7 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2721770741670364765
 MeshFilter:
@@ -127,7 +127,9 @@ MonoBehaviour:
   Dispensa: {fileID: 0}
   PianoCottura: {fileID: 0}
   Forno: {fileID: 0}
-  Rifornimento: {fileID: 0}
+  RifornimentoCav: {fileID: 0}
+  RifornimentoMorzeddhu: {fileID: 0}
+  RifornimentoPitta: {fileID: 0}
   Ordine: {fileID: 0}
   Cliente: {fileID: 0}
   OrdinazioneCliente: {fileID: 0}
@@ -143,13 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8df872c8573ec148ba25bf6d70a4759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  salsaPesce: 0
+  salsaPesce: 5
   peperoncino: 5
   sale: 5
-  nduja: 0
+  nduja: 5
   vitello: 5
   pitta: 5
-  fruttaSecca: 0
+  fruttaSecca: 5
   miele: 5
   cannella: 5
 --- !u!195 &8829201544129608682

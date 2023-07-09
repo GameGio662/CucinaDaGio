@@ -6,8 +6,8 @@ using UnityEngine.AI;
 
 public class Idle : AIState
 {
-    public Idle(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente) 
-        : base(_agent, _player, _ordine, _sportello, _frigorifero, _dispensa, _pianoCottura, _forno, _rifornimento, _ordinazioneCliente, _cliente)
+    public Idle(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente, Transform _rifornimentoMorzeddhu, Transform _rifornimentoPitta) : 
+        base(_agent, _player, _ordine, _sportello, _frigorifero, _dispensa, _pianoCottura, _forno, _rifornimento, _ordinazioneCliente, _cliente, _rifornimentoMorzeddhu, _rifornimentoPitta)
     {
         Name = State.Idle;
     }
@@ -23,7 +23,8 @@ public class Idle : AIState
             if (Apertura())
             {
                 OrdinazioneCliente.text = " ";
-                nextState = new Ordinazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente, Cliente);
+                nextState = new Ordinazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, 
+                    PianoCottura, Forno, rifornimentoCav, OrdinazioneCliente, Cliente, rifornimentoMorzeddhu, rifornimentoPitta);
                 Stage = Event.Exit;
                 Cliente.SetActive(true);
                 return;

@@ -7,8 +7,8 @@ using UnityEngine.AI;
 
 public class Ordinazione : AIState
 {
-    public Ordinazione(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente)
-       : base(_agent, _player, _ordine, _sportello, _frigorifero, _dispensa, _pianoCottura, _forno, _rifornimento, _ordinazioneCliente, _cliente)
+    public Ordinazione(NavMeshAgent _agent, GameObject _player, GameObject _ordine, Transform _sportello, Transform _frigorifero, Transform _dispensa, Transform _pianoCottura, Transform _forno, Transform _rifornimento, TextMeshProUGUI _ordinazioneCliente, GameObject _cliente, Transform _rifornimentoMorzeddhu, Transform _rifornimentoPitta)
+         : base(_agent, _player, _ordine, _sportello, _frigorifero, _dispensa, _pianoCottura, _forno, _rifornimento, _ordinazioneCliente, _cliente, _rifornimentoMorzeddhu, _rifornimentoPitta)
     {
         Name = State.Ordinazione;
     }
@@ -44,7 +44,8 @@ public class Ordinazione : AIState
             {
                 OrdinazioneCliente.text = " ";
                 ordinare = false;
-                nextState = new Preparazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente, Cliente);
+                nextState = new Preparazione(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, 
+                    PianoCottura, Forno, rifornimentoCav, OrdinazioneCliente, Cliente, rifornimentoMorzeddhu, rifornimentoPitta);
                 Stage = Event.Exit;
             }
         }
@@ -67,7 +68,8 @@ public class Ordinazione : AIState
             Ordine.name = "Ordine";
             OrdinazioneCliente.text = " ";
             agent.SetDestination(new Vector3(0, 3f, 2f));
-            nextState = new Idle(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, PianoCottura, Forno, rifornimento, OrdinazioneCliente, Cliente);
+            nextState = new Idle(agent, Player, Ordine, Sportello, Frigorifero, Dispensa, 
+                PianoCottura, Forno, rifornimentoCav, OrdinazioneCliente, Cliente, rifornimentoMorzeddhu, rifornimentoPitta);
             Stage = Event.Exit;
             return;
         }
